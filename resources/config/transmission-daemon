@@ -10,7 +10,7 @@
 
 NAME=transmission-daemon
 DAEMON=/usr/bin/$NAME
-USER=debian-transmission
+USER=root
 STOP_TIMEOUT=30
 
 export PATH="${PATH:+$PATH:}/sbin"
