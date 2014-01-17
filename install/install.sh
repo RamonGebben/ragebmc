@@ -29,8 +29,8 @@ pip install flexget
 easy_install transmissionrpc
 
 # set default group
-usermod -g ragebmc root
 addgroup ragebmc
+usermod -g ragebmc root
 echo "%ragebmc   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/ragebmc
 chmod 0440 /etc/sudoers.d/ragebmc
 
