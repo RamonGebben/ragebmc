@@ -47,6 +47,11 @@ mkdir -p /ragebmc/resources
 chown -R root:ragebmc /ragebmc 
 chown -R root:ragebmc /ragebmc
 
+#fixing up transmission"
+service transmission-daemon stop
+cp /ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
+cp /ragebmc/resources/config/transmission-daemon /etc/init.d/transmission-daemon
+service transmission-daemon start
 
 # link fish functions
 ln -s /ragebmc/fish /etc/fish/functions
