@@ -54,5 +54,5 @@ ln -s /ragebmc/fish /etc/fish/functions
 sed -i 's/UMASK\s*022/UMASK 002/g' /etc/login.defs
 
 echo "***************************"
-echo "REBOOT and run rb-update"
+echo "REBOOT and run rb-upgrade"
 #reboot

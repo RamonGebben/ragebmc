@@ -18,6 +18,10 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "Update fish auto-completitions"
   fish_update_completions 
 
+  crow notice setting up hostname
+  echo "ragebmc" > /etc/hostname
+  sudo cp /ragebmc/resources/config/hosts /etc/hosts
+
   crow success "Finished ds-upgrade proccess"
 
 end
