@@ -23,7 +23,11 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "setting up hostname"
   echo "ragebmc" > /etc/hostname
   sudo cp /ragebmc/resources/config/hosts /etc/hosts
+
+  crow notice "fixing up transmission"
+  sudo service transmission-daemon stop
   sudo cp /ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
+  sudo service transmission-daemon start
 
   crow notice "Setting default flexget file"
   cp /ragebmc/resources/config/config.yml /ragebmc/.flexget
