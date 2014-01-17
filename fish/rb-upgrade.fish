@@ -8,7 +8,6 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   mkdir -p /ragebmc/movies
   mkdir -p /ragebmc/download
   mkdir -p /ragebmc/incomplete
-  mkdir -p /ragebmc/.flexget
   mkdir -p /ragebmc/resources
 
   crow notice "Pull most recent changes from remote git"
