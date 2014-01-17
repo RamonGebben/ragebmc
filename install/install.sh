@@ -46,13 +46,13 @@ mkdir -p /ragebmc/resources
 # fix ownership
 chown -R root:ragebmc /ragebmc 
 chown -R root:ragebmc /ragebmc
+chown -R pi:ragebmc /home/pi
+usermod -G ragebmc pi
+
 
 # link fish functions
 ln -s /ragebmc/fish /etc/fish/functions
 
-# default shell
-echo "/usr/local/bin/fish" > /etc/shells
-chsh -s /usr/local/bin/fish
 
 # fix default umask
 sed -i 's/UMASK\s*022/UMASK 002/g' /etc/login.defs
