@@ -1,68 +1,137 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="RaGeBMC : RaGeBMC" />
 
-  <title>RaGeBMC</title>
-  <meta name="description" content="RaGeBMC">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RaGeBMC</title>
+  </head>
 
-</head>
+  <body>
 
-<body>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/RamonGebben/ragebmc">View on GitHub</a>
 
-  <div class="wrapper">
-    <header>
-      <h1 class="title">RaGeBMC</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">RaGeBMC</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/RamonGebben/ragebmc/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/RamonGebben/ragebmc/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/RamonGebben/ragebmc" class="code">View RaGeBMC on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <h1>
+          <h1 id="project_title">RaGeBMC</h1>
+          <h2 id="project_tagline">RaGeBMC</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/RamonGebben/ragebmc/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/RamonGebben/ragebmc/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a name="ragebmc" class="anchor" href="#ragebmc"><span class="octicon octicon-link"></span></a>RaGeBMC</h1>
 
-<p>RaGeBMC is a automated configuration voor Raspbmc.
-This configuration will allow you to add torrent files to transmission web interface.
-It will also download this rss feed from <a href="http://showrss.info/">ShowRSS</a>.
-Here you can make you're own account and add the feed url to .flexget/settings.json</p>
-        </article>
-      </div>
+<p>RageBMC is a automated configuration voor Raspbmc.
+It carries transmission, flexget xbmc and fish.</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Install root file system and go though the first boot of Raspbmc.
+Login via terminal and set root password.
+The default username and password for Raspbmc are:</p>
+
+<pre><code>user: pi
+passwd: raspberry
+</code></pre>
+
+<p>To set root password use</p>
+
+<pre><code>sudo passwd root
+</code></pre>
+
+<p>Logout or <code>su root</code> to gain root acces and run:</p>
+
+<pre><code>bash &lt;( curl "https://raw2.github.com/RamonGebben/ragebmc/master/install/install.sh")
+</code></pre>
+
+<p>When the script is done, reboot.
+After reboot you will need to run </p>
+
+<pre><code>fish
+</code></pre>
+
+<p>this will give you an nice prompt and give you the ability to run the RaGeBMC scripts. use it to run </p>
+
+<pre><code>rb-upgrade
+</code></pre>
+
+<p>This will install en configure the rest except for the flexget crontab and useraccount.</p>
+
+<h3>
+<a name="transmission" class="anchor" href="#transmission"><span class="octicon octicon-link"></span></a>Transmission</h3>
+
+<p><a href="http://www.transmissionbt.com/">Trasmissionbt</a> is a Open Source Bittorrent client. One of the great features is the web interface. </p>
+
+<p>This way you can run a torrent client without an graphic interface.
+The web interface is available at poort 9091.</p>
+
+<pre><code>ragebmc.local:9091
+</code></pre>
+
+<p>Here you can add torrents, you can choose to download into the download folder, or you can edit the destination folder when you add it.
+The available folder are:</p>
+
+<ul>
+<li>download</li>
+<li>movies</li>
+<li>series</li>
+</ul><h3>
+<a name="showrss" class="anchor" href="#showrss"><span class="octicon octicon-link"></span></a>ShowRSS</h3>
+
+<p><a href="http://showrss.info">ShowRSS</a> is wonderfull initiative, it gives you the ability to add a show to your list, and if you Flexget feed is set correctly, it will start downloading that show from the next aired episode.</p>
+
+<h3>
+<a name="flexget" class="anchor" href="#flexget"><span class="octicon octicon-link"></span></a>Flexget</h3>
+
+<p><a href="http://flexget.com">Flexget</a> gives you the ability to add an RSS feed from torrent links, and automatically add these torrents to transmission.</p>
+
+<p>To set your ShowsRSS account edit the <code>config.yml</code> in the folder <code>/ragebmc/.flexget/</code>
+Paste your feed where it saids</p>
+
+<pre><code> feed: http://showrss.info/rss.php?user_id=151505&amp;hd=null&amp;proper=null&amp;namespaces=true 
+</code></pre>
+
+<p>And run</p>
+
+<pre><code>flexget execute
+</code></pre>
+
+<p>To make it check for downloads every 15min add flexget to crontab.
+Use </p>
+
+<pre><code>crontab -e
+</code></pre>
+
+<p>And add this line.    </p>
+
+<pre><code>*/15 * * * * /usr/local/bin/flexget
+</code></pre>
+      </section>
     </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/RamonGebben" class="avatar"><img src="https://1.gravatar.com/avatar/e0178fb358ad484761823cd16554b39c?d=https%3A%2F%2Fidenticons.github.com%2Fe6645dd1601e7938b8988a9214139246.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/RamonGebben">RamonGebben</a> maintains <a href="https://github.com/RamonGebben/ragebmc">RaGeBMC</a></p>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">RaGeBMC maintained by <a href="https://github.com/RamonGebben">RamonGebben</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
 
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/RamonGebben/ragebmc/tarball/master" class="tar">tar</a><a href="https://github.com/RamonGebben/ragebmc/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
+    
 
-  
-</body>
+  </body>
 </html>
