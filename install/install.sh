@@ -17,7 +17,7 @@ apt-get install -y python-software-properties
 # repositories
 add-apt-repository -y ppa:keithw/mosh            # mosh
 apt-add-repository -y ppa:fish-shell/release-2   # fish
-add-apt-repository ppa:transmissionbt/ppa        # transmission
+add-apt-repository -y ppa:transmissionbt/ppa        # transmission
 apt-get update
 
 # install it all at once
@@ -33,6 +33,7 @@ addgroup ragebmc
 usermod -g ragebmc root
 echo "%ragebmc   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/ragebmc
 chmod 0440 /etc/sudoers.d/ragebmc
+sudo usermod -g ragebmc debian-transmission
 
 # checkout ragebmc
 mkdir -p /ragebmc

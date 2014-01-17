@@ -21,6 +21,7 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice setting up hostname
   echo "ragebmc" > /etc/hostname
   sudo cp /ragebmc/resources/config/hosts /etc/hosts
+  sudo cp /ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
 
   crow success "Finished ds-upgrade proccess"
 
