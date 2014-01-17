@@ -3,13 +3,13 @@ function fish_prompt
 
   echo -n $USER
 
-  set_color 666
+  set_color normal
   echo -n "@"
 
   set_color cyan
   echo -n (hostname)
 
-  set_color 666
+  set_color normal
   echo -n ":"
 
   set_color green
@@ -17,14 +17,14 @@ function fish_prompt
 
   set_color -b normal 444
   echo -n "     "
-  echo -n -s (date +%H:%M) " "
+  echo -n  (date +%H:%M) " "
   set_color -b normal 222
-  echo -n -s (date +%b ) " " (date +%d)
+  echo -n (date +%b ) " " (date +%d)
 
   echo ""
 
   set_color -b normal yellow
-  echo -n '» '
+  echo -n '>>  '
   set_color normal
 
 
