@@ -29,7 +29,7 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   ln -s /ragebmc/.flexget /root/.flexget
 
   crow notice "Adding .flexget to gitignore list"
-  echo "/.flexget" > .gitignore
+  echo "/.flexget" >> .gitignore
 
   crow success "Finished ds-upgrade proccess"
 
