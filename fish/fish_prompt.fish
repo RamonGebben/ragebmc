@@ -1,7 +1,6 @@
 function fish_prompt
   echo
 
-  set_color -b 222 d91161
   echo -n $USER
 
   set_color 666
@@ -23,7 +22,6 @@ function fish_prompt
   echo -n -s (date +%b ) " " (date +%d)
 
   echo ""
-  ds-feed here
 
   set_color -b normal yellow
   echo -n '» '

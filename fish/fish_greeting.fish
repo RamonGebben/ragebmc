@@ -1,8 +1,6 @@
 function fish_greeting
   function g2 
-    df -h -x tmpfs -x devtmpfs | sed "s/^/  /"
-    cd /devstar  
-    du -sh * | sed "s/^/  /"
+    cd /ragebmc
   end
   clear
   echo 
