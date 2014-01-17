@@ -6,7 +6,9 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "Ensuring tools, logs & sites folder"
   mkdir -p /ragebmc/series
   mkdir -p /ragebmc/movies
+  mkdir -p /ragebmc/download
   mkdir -p /ragebmc/incomplete
+  mkdir -p /ragebmc/.flexget
   mkdir -p /ragebmc/resources
 
   crow notice "Pull most recent changes from remote git"
@@ -18,10 +20,17 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "Update fish auto-completitions"
   fish_update_completions 
 
-  crow notice setting up hostname
+  crow notice "setting up hostname"
   echo "ragebmc" > /etc/hostname
   sudo cp /ragebmc/resources/config/hosts /etc/hosts
   sudo cp /ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
+
+  crow notice "Setting default flexget file"
+  cp /ragebmc/resources/config/config.yml /ragebmc/.flexget
+  ln -s /ragebmc/.flexget /root/.flexget
+
+  crow notice "Adding .flexget to gitignore list"
+  echo "/.flexget" > .gitignore
 
   crow success "Finished ds-upgrade proccess"
 
