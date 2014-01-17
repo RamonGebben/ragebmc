@@ -24,7 +24,7 @@ function fish_prompt
   echo ""
 
   set_color -b normal yellow
-  echo -n '» '
+  echo -n '> '
   set_color normal
 
 

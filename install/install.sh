@@ -33,7 +33,7 @@ addgroup ragebmc
 usermod -g ragebmc root
 echo "%ragebmc   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/ragebmc
 chmod 0440 /etc/sudoers.d/ragebmc
-sudo usermod -g ragebmc debian-transmission
+usermod -g ragebmc debian-transmission
 
 # checkout ragebmc
 mkdir -p /ragebmc

@@ -1,0 +1,8 @@
+tasks:
+  feeds:
+      rss: http://showrss.info/rss.php?user_id=151505&hd=null&proper=null&names$
+      all_series: true
+      transmission:
+        host: localhost
+        path: "/ragebmc/series/{{series_name}}/"
+        port: 9091
