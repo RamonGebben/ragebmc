@@ -31,6 +31,9 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "Adding .flexget to gitignore list"
   echo "/.flexget" >> .gitignore
 
+  crow notice "Getting splash screen in place"
+  cp /ragebmc/resources/img/splash-1080p.jpg /splash/splash-1080p.png
+
   crow success "Finished ds-upgrade proccess"
 
 end
