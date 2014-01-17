@@ -46,8 +46,6 @@ mkdir -p /ragebmc/resources
 # fix ownership
 chown -R root:ragebmc /ragebmc 
 chown -R root:ragebmc /ragebmc
-chown -R pi:ragebmc /home/pi
-usermod -G ragebmc pi
 
 
 # link fish functions
