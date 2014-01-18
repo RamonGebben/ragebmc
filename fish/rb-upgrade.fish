@@ -19,11 +19,6 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "Update fish auto-completitions"
   fish_update_completions 
 
-  crow notice "setting up hostname"
-  hostname ragebmc
-  echo "ragebmc" > /etc/hostname
-  sudo cp /ragebmc/resources/config/hosts /etc/hosts
-
   crow notice "Setting default flexget file"
   cp /ragebmc/resources/config/config.yml /ragebmc/.flexget
   ln -s /ragebmc/.flexget /root/.flexget
@@ -34,6 +29,13 @@ function rb-upgrade -d "Brings core tools and configuration up to date"
   crow notice "Getting splash screen in place"
   cp /ragebmc/resources/img/splash-1080p.png /splash/splash-1080p.png
 
+  crow notice "setting up hostname"
+  hostname ragebmc
+  echo "ragebmc" > /etc/hostname
+  sudo cp /ragebmc/resources/config/hosts /etc/hosts
+
   crow success "Finished ds-upgrade proccess"
+  crow success "REBOOT!"
+  sudo reboot
 
 end
