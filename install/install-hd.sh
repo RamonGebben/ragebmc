@@ -34,26 +34,26 @@ echo "%ragebmc   ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/ragebmc
 chmod 0440 /etc/sudoers.d/ragebmc
 
 # checkout ragebmc
-mkdir -p /media//ragebmc
-cd /media//ragebmc
+mkdir -p /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc
+cd /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc
 git clone https://github.com/RamonGebben/ragebmc.git .
-mkdir -p /media//ragebmc/series
-mkdir -p /media//ragebmc/movies
-mkdir -p /media//ragebmc/incomplete
-mkdir -p /media//ragebmc/resources
+mkdir -p /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/series
+mkdir -p /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/movies
+mkdir -p /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/incomplete
+mkdir -p /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/resources
 
 # fix ownership
-chown -R root:ragebmc /media//ragebmc 
-chown -R root:ragebmc /media//ragebmc
+chown -R root:ragebmc /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc 
+chown -R root:ragebmc /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc
 
 #fixing up transmission"
 service transmission-daemon stop
-cp /media//ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
-cp /media//ragebmc/resources/config/transmission-daemon /etc/init.d/transmission-daemon
+cp /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
+cp /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/resources/config/transmission-daemon /etc/init.d/transmission-daemon
 service transmission-daemon start
 
 # link fish functions
-ln -s /media//ragebmc/fish /etc/fish/functions
+ln -s /media/ce8d2931-bc64-4338-a65b-e647ae81f1f0/ragebmc/fish /etc/fish/functions
 
 
 # fix default umask
