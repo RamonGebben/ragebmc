@@ -6,3 +6,9 @@ tasks:
         host: localhost
         path: "/ragebmc/series/{{series_name}}/"
         port: 9091
+    
+schedules:
+#Run all tasks
+- tasks: '*'
+  interval:
+     hours: 1
