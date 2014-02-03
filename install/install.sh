@@ -47,6 +47,27 @@ mkdir -p /ragebmc/resources
 chown -R root:ragebmc /ragebmc 
 chown -R root:ragebmc /ragebmc
 
+#make flexget daemon run 
+echo '# Configuration for /etc/init.d/flexget' > /etc/default/flexget
+echo '# User to run flexget as.' >> /etc/default/flexget
+echo '# Daemon will not start if left empty.' >> /etc/default/flexget
+echo 'FGUSER="root"' >> /etc/default/flexget
+echo '\n' >> /etc/default/flexget
+echo '# Full path to the flexget config.yml file to use.' >> /etc/default/flexget
+echo '# Defaults to FGUSER $HOME/.flexget/config.yml' >> /etc/default/flexget
+echo 'CONFIG="/ragebmc/.flexget"' >> /etc/default/flexget
+echo '\n' >> /etc/default/flexget
+echo '# Path to the directory where flexget should log. Do not add trailing slash.' >> /etc/default/flexget
+echo '# Defaults to the FGUSER $HOME/.flexget directory' >> /etc/default/flexget
+echo 'LOG="/ragebmc/.flexget"' >> /etc/default/flexget
+echo '\n' >> /etc/default/flexget
+echo "# Log verbosity" >> /etc/default/flexget
+echo "# Available options : none critical error warning info verbose debug trace" >> /etc/default/flexget
+echo "# Defaults to info" >> /etc/default/flexget
+echo "LEVEL="error"" >> /etc/default/flexget
+cp /ragebmc/resources/config/flexget /etc/init.d/flexget
+update-rc.d flexget defaults
+
 #fixing up transmission"
 service transmission-daemon stop
 cp /ragebmc/resources/config/settings.json /etc/transmission-daemon/settings.json
