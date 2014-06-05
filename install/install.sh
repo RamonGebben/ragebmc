@@ -16,7 +16,7 @@ apt-get install -y python-software-properties
 
 # repositories
 add-apt-repository -y ppa:keithw/mosh            # mosh
-apt-add-repository -y ppa:fish-shell/release-2   # fish
+add-apt-repository -y ppa:fish-shell/release-2   # fish
 add-apt-repository -y ppa:transmissionbt/ppa        # transmission
 apt-get update
 
